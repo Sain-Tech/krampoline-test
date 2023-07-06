@@ -1,5 +1,9 @@
-import {useEffect} from 'react';
+import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
+
+const staticServerUri = process.env.REACT_APP_PATH || '';
+console.log(staticServerUri);
 
 function App() {
     useEffect(() => {
@@ -13,17 +17,26 @@ function App() {
             });
     }, []);
     return (
-        <div>
-            <header>
-                <img src alt="logo" />
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a href="https://reactjs.org" target="_blank">
-                    Learn React
-                </a>
-            </header>
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route
+                    path={staticServerUri + '/'}
+                    element={
+                        <div>
+                            <header>
+                                <img src alt="logo" />
+                                <p>
+                                    Edit <code>src/App.js</code> and save to reload.
+                                </p>
+                                <a href="https://reactjs.org" target="_blank">
+                                    Learn React
+                                </a>
+                            </header>
+                        </div>
+                    }
+                ></Route>
+            </Routes>
+        </BrowserRouter>
     );
 }
 
