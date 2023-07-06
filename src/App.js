@@ -1,3 +1,4 @@
+import {useEffect} from 'react';
 import axios from 'axios';
 
 function App() {
@@ -25,3 +26,5 @@ function App() {
         </div>
     );
 }
+
+export default App;
