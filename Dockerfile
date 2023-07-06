@@ -14,3 +14,5 @@ COPY --from=build /usr/src/app/build ./build
 # Install serve for serving static files
 RUN npm install -g serve
 EXPOSE 3000
+
+CMD serve -s build
